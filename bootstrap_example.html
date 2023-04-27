@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Time Series Chart</title>
+    <!-- Load Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZEb/ifUcwoFdUJc5g5Kjq" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Time Series Chart</h1>
+        <!-- Create canvas element for the chart -->
+        <canvas id="myChart"></canvas>
+    </div>
+    <!-- Load Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Define data for the chart
+        var data = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "My Dataset",
+                data: [10, 20, 30, 40, 50, 60, 70]
+            }]
+        };
+        
+        // Define chart options
+        var options = {
+            responsive: true,
+            title: {
+                display: true,
+                text: "My Time Series Chart"
+            },
+            scales: {
+                xAxes: [{
+                    type: "time",
+                    time: {
+                        unit: "month"
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        
+        // Create chart object
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myChart = new Chart(ctx, {
+            type: "line",
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>

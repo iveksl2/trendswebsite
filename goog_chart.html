@@ -1,0 +1,42 @@
+<html>
+    <head>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Number of Publications'],
+            ['2010',  162444],
+            ['2011',  170168],
+            ['2012',  176611],
+            ['2013',  183656],
+            ['2014',  192310],
+            ['2015',  194000],
+            ['2016',  194194],
+            ['2017',  206392],
+            ['2018',  237482],
+            ['2019',  281659],
+            ['2020',  311675],
+            ['2021',  334497],
+          ]);
+  
+          var options = {
+            title: 'Number of AI Publications over Time',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+          };
+  
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  
+          chart.draw(data, options);
+        }
+      </script>
+    </head>
+    <body>
+      <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    </body>
+    <p>Source: https://ourworldindata.org/ai-investments</p>
+  </html>
+  
